@@ -8,7 +8,12 @@ import java.util.List;
 /**
  * Дополнительный репозиторий
  */
-public interface AdvancedRepository {
+public interface AdvancedRepository <Person>{
+    Person findById(Long id);
+    Person update(Person element);
+    void delete(Person element);
+    void save(Person element);
+    List<Person> findAll();
     /**
      * Метод для поиска родственников
      * @param person человек, родственников которого нужно найти

@@ -1,54 +1,55 @@
 package mocks.crud.task.service;
 
 import mocks.crud.task.model.Address;
+import mocks.crud.task.repository.CrudRepository;
+import mocks.crud.task.model.Address;
 import mocks.crud.task.model.Person;
 import mocks.crud.task.repository.AdvancedRepository;
 import mocks.crud.task.repository.CrudRepository;
 
 import java.util.List;
 
-public class PersonService implements  AdvancedRepository {
+public class PersonService{
 
     private AddressService addressService;
 
-    private CrudRepository<Person, Long> personRepository;
+    private AdvancedRepository<Person> personRepository;
 
-    public PersonService(AddressService addressService) {
+    public PersonService(AdvancedRepository repository,AddressService addressService) {
         this.addressService = addressService;
+        this.personRepository=repository;
     }
 
-    @Override
     public List<Person> findAllRelatives(Person person) {
-        //todo написать реализацию
-        return null;
+
+        return personRepository.findAllRelatives(person);
     }
 
-    @Override
     public Address getAddress(Person person) {
-        //todo написать реализацию
-        return null;
+
+        return personRepository.getAddress(person);
     }
 
     public void save(Person element) {
-        //todo написать реализацию
+        personRepository.save(element);
     }
 
     public Person findById(Long id) {
-        //todo написать реализацию
-        return null;
+
+        return personRepository.findById(id);
     }
 
     public List<Person> findAll() {
-        //todo написать реализацию
-        return null;
+
+        return personRepository.findAll();
     }
 
     public Person update(Person element) {
-        //todo написать реализацию
-        return null;
+
+        return personRepository.update(element);
     }
 
     public void delete(Person element) {
-        //todo написать реализацию
+        personRepository.update(element);
     }
 }

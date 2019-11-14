@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Person {
+    private Long id;
 
     private String name;
 
@@ -13,12 +14,16 @@ public class Person {
 
     private List<Person> relatives;
 
-    public Person(String name, Integer age, Address address) {
+    public Person(Long id, String name, Integer age, Address address) {
+        this.id=id;
         this.name = name;
         this.age = age;
         this.address = address;
         relatives = new ArrayList<>();
     }
+    public Long getId(){ return id;}
+
+    public void setId(Long id){ this.id=id;}
 
     public String getName() {
         return name;
